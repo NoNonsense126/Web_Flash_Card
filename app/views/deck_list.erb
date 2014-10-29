@@ -1,4 +1,4 @@
-<!-- Have list of decks
+<%= erb :_header %><!-- Have list of decks
 
 -English-to-other-language dictionaries. Try these.
 -US state capitals
@@ -7,8 +7,10 @@
 
 Pick deck leads to start of round -->
 <div class="container">
+  <br>
+  <br>
   <form action="/startround" method="get">
-    <input type="submit", value="Start Game!">
+    <input id="start" type="submit", value="Start Game!">
   </form>
 </div>
 

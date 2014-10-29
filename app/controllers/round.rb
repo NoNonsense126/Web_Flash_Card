@@ -10,6 +10,7 @@ end
 
 post '/answer/:id' do
   round = session[:round]
+  @round = round
   guess = Guess.create(card_id: params[:id], round_id: round.id)
   card = Card.find_by(id: params[:id])
   if params["answer"].downcase == card.answer.downcase

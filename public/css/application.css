@@ -1,9 +1,35 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 720px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
 }
+
+
+
 th {
   text-align: left;
 }
+
+.black_link{
+  color:#000000
+}
+
+.questions{
+  font-size: 20px;
+}
+
+
+.jumbotron{
+  background-color: light-grey;
+}
+
+ #start{width :800px;
+ height :300px;
+font-size :100px;
+background-color: red;
+text-align: center;
+padding: 20px 20px 20px 20px;}
+
+/*#question{width :100px;
+height :50px;
+font-size :20px;}*/

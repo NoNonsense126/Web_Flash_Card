@@ -1,0 +1,14 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="/"><button class="btn btn-custom navbar-btn" type="button">Home</button></a>
+    </div>
+    <p class="navbar-text navbar-collapse">Web Flash Cards</p>
+
+    <% if session[:username] %>
+      <a href="/logout"><button class="navbar-right btn btn-custom navbar-btn" type="button">Logout</button></a>
+      <p class="navbar-right navbar-text navbar-collapse"></p>
+    <% end %>
+
+  </div>
+</nav>

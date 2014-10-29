@@ -39,3 +39,7 @@ get "/logout" do
   session[:username] = nil
   redirect "/"
 end
+
+get "/test" do
+  erb :'round/lost_page'
+end

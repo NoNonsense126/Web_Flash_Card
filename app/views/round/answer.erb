@@ -1,6 +1,12 @@
+<div class="container">
+
 <h1> You are <%= @correct %>.  </h1>
   <p> The answer is <%= @answer %> </p>
+  <p> Number of correct tries <%= @round.cards_correct %> </p>
+  <p> Number of lame tries <%= @round.cards_incorrect %> </p>
 
 <form action="/question/<%= @next_card.id %>" method="get">
   <input type="submit" value="Next Question">
 </form>
+
+</div>

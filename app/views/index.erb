@@ -1,13 +1,25 @@
+<%= erb :_header %>
 <div class="container">
 
 
 <% if login? %>
-  <h1>"Welcome <%= "#{username}" %>!"</h1>
-  <a href ="/logout"> Logout </a>
+  <div class="jumbotron">
+    <h1>"Welcome <%= "#{username}" %>!"</h1>
+
+  </div>
+
 
   <% @decks.each do |deck| %>
-    <a href="/decks/<%= deck.subject %>" ><p> <%= deck.subject %> </p> </a>
+    <div class="col-md-4">
+      <h2> <%= deck.subject.gsub("-", " ").capitalize %> </p> </h2>
+      <p> <% deck.cards.each_with_index do |card, index| %>
+            <%= card.question if index<8 %>
+          <% end %>
+      </p>
+      <p><a class="btn btn-success" href="/decks/<%= deck.subject %>" role="button">Start Challenge!</a></p>
+    </div>
   <% end %>
+
 
 <% else %>
   <form action="/login" method="post">
