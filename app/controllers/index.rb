@@ -1,5 +1,5 @@
-use Rack::Session::Cookie,:secret => "hello"
-# enable :session
+# use Rack::Session::Cookie,:secret => "hello"
+enable :session
 
 def login?
   !session[:username].nil?

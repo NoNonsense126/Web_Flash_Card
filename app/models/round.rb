@@ -15,4 +15,12 @@ class Round < ActiveRecord::Base
     cards.sample
   end
 
+  def cards_correct
+    self.guesses.where(correctness: true).count
+  end
+
+  def cards_incorrect
+    self.guesses.where(correctness: false).count
+  end
+
 end

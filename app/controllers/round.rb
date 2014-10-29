@@ -9,12 +9,22 @@ get '/question/:id' do
 end
 
 post '/answer/:id' do
-  session[:round].id
-  guess = Guess.create(card_id: params[:id], round_id: session[:round].id)
-  if params["answer"] == Card.find_by(id: params[:id]).answer
-    @test = true
+  round = session[:round]
+  guess = Guess.create(card_id: params[:id], round_id: round.id)
+  card = Card.find_by(id: params[:id])
+  if params["answer"].downcase == card.answer.downcase
+    guess.update(correctness: true)
+    @correct = "Correct!"
   else
-    @test = false
+    @correct = "Wrong!"
   end
-  erb :test
+  if round.cards_correct >= round.deck.cards.count
+    erb :'round/won_page'
+  elsif round.cards_incorrect >= round.guess_lives
+    erb :'round/lost_page'
+  else
+    @answer = card.answer
+    @next_card = session[:round].random_remaining_card
+    erb :'round/answer'
+  end
 end
